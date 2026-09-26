@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 
 const navLinks = [
+  { label: "JacHacks", href: "#jachacks" },
   { label: "Features", href: "#features" },
   { label: "Architecture", href: "#architecture" },
   { label: "Memory", href: "#memory" },
-  { label: "Install", href: "#install" },
+  { label: "Self-host", href: "#setup" },
 ];
 
 export function Navbar() {

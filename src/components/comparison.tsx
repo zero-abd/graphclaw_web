@@ -1,12 +1,10 @@
 const rows = [
-  { label: "Language", nanobot: "Python", openclaw: "TypeScript", graphclaw: "Jac (compiles to Python)" },
-  { label: "Memory", nanobot: "Flat .md files", openclaw: "File-based", graphclaw: "OSP property graph" },
-  { label: "Memory recall", nanobot: "LLM summarization", openclaw: "File scan", graphclaw: "Indexed graph traversal + semantic" },
-  { label: "Agents", nanobot: "Single agent", openclaw: "Single agent", graphclaw: "Multi-agent (5 specialists)" },
-  { label: "Skills", nanobot: "SKILL.md files", openclaw: "ClawHub", graphclaw: "Dynamic directory + online install" },
-  { label: "Multi-user", nanobot: "No", openclaw: "No", graphclaw: "Config scaffold present" },
-  { label: "Deployment", nanobot: "pip", openclaw: "pip", graphclaw: "jac run → jac start → Kubernetes" },
-  { label: "AI functions", nanobot: "LLM calls", openclaw: "LLM calls", graphclaw: "by llm() — Meaning Typed" },
+  { label: "Implementation", nanobot: "Python, lightweight assistant", openclaw: "TypeScript, web-first agent runtime", graphclaw: "Jac + Python, graph-native runtime" },
+  { label: "Memory", nanobot: "Flat markdown / file memory", openclaw: "Files, skills, runtime state", graphclaw: "Workspace-backed knowledge graph" },
+  { label: "Agents", nanobot: "Single assistant", openclaw: "Agent runtime", graphclaw: "Coordinator + 4 specialist agents" },
+  { label: "Skills", nanobot: "Limited next to claw ecosystems", openclaw: "Strong SKILL.md ecosystem", graphclaw: "Native skills + SKILL.md + ClawHub" },
+  { label: "MCP", nanobot: "Not the focus", openclaw: "Major part of its direction", graphclaw: "Configured servers exposed to all agents" },
+  { label: "Operator UI", nanobot: "Usually minimal", openclaw: "Important product surface", graphclaw: "Jac-native dashboard with a live graph view" },
 ];
 
 export function Comparison() {
@@ -18,7 +16,7 @@ export function Comparison() {
             Why <span className="text-accent">Graphclaw</span>?
           </h2>
           <p className="mt-4 text-muted text-lg max-w-2xl mx-auto">
-            Inspired by nanobot and openclaw — rebuilt from scratch with a graph-native core.
+            Inspired by nanobot and OpenClaw. It keeps the claw-style agent and skill feel, and re-centers the runtime on a persistent knowledge graph.
           </p>
         </div>
 
@@ -28,7 +26,7 @@ export function Comparison() {
               <tr className="border-b border-card-border bg-card/80">
                 <th className="text-left py-4 px-6 font-semibold text-muted" />
                 <th className="text-left py-4 px-6 font-semibold text-muted">nanobot</th>
-                <th className="text-left py-4 px-6 font-semibold text-muted">openclaw</th>
+                <th className="text-left py-4 px-6 font-semibold text-muted">OpenClaw</th>
                 <th className="text-left py-4 px-6 font-semibold text-accent">Graphclaw</th>
               </tr>
             </thead>

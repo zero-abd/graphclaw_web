@@ -1,78 +1,82 @@
+import Image from "next/image";
+
+const tree = `assistant_root  (Graphclaw root node)
+├─ has_name ───────────▶ Name
+├─ has_identity ───────▶ Identity
+├─ has_soul ───────────▶ Soul
+├─ speaks_with_cadence ▶ Conversation cadence
+├─ runs_dream_cycle ───▶ Dream cadence (2h)
+├─ has_skills ─────────▶ Skills root
+│   └─ has_skill_group ▶ inherent, clawhub,
+│                        workspace, shared
+│       └─ has_skill ──▶ base44, loveable
+└─ has_mcp ────────────▶ MCP root
+    └─ has_mcp_group ──▶ servers, tools,
+                         resources, prompts
+
+per conversation:
+session ▶ turns ▶ memories ─related_to─▶ memories`;
+
 export function Memory() {
   return (
     <section id="memory" className="py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Memory is a <span className="text-accent">Graph</span>, Not a File
+            Memory is a <span className="text-accent">graph</span>, not a file
           </h2>
           <p className="mt-4 text-muted text-lg max-w-2xl mx-auto">
-            Every fact is a node with confidence that decays over time. The Dream
-            walker maintains it automatically.
+            The assistant starts with a seeded root graph for its identity,
+            skills, and MCP servers, then grows it with every conversation. It
+            is stored as JSON in your workspace, so you can read it and back it
+            up.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Graph visualization */}
-          <div className="rounded-xl border border-card-border bg-code-bg p-6 font-mono text-sm leading-loose">
-            <div className="text-muted mb-3 text-xs font-sans font-medium uppercase tracking-wider">
-              Graph Structure
+          <div className="rounded-xl border border-card-border bg-code-bg p-6">
+            <div className="text-muted mb-3 text-xs font-medium uppercase tracking-wider">
+              Seeded graph on first launch (real edge names)
             </div>
-            <pre className="text-sm leading-7 overflow-x-auto">
-              <code>
-                <span className="text-accent font-bold">root</span>
-                {"\n"}
-                <span className="text-muted"> ├──</span>
-                <span className="text-blue-400">[:HasMemory]</span>
-                <span className="text-muted">──▶ </span>
-                <span className="text-green-400">Memory</span>
-                <span className="text-muted">{" { content, type, confidence: 0.9 }"}</span>
-                {"\n"}
-                <span className="text-muted"> ├──</span>
-                <span className="text-blue-400">[:HasSession]</span>
-                <span className="text-muted">──▶ </span>
-                <span className="text-yellow-400">Session</span>
-                <span className="text-muted"> ──</span>
-                <span className="text-blue-400">[:HasTurn]</span>
-                <span className="text-muted">──▶ </span>
-                <span className="text-yellow-400">Turn</span>
-                {"\n"}
-                <span className="text-muted"> └──▶ </span>
-                <span className="text-pink-400">Topic</span>
-                <span className="text-muted"> ──</span>
-                <span className="text-blue-400">[:Tagged]</span>
-                <span className="text-muted">──▶ </span>
-                <span className="text-green-400">Memory</span>
-                {"\n"}
-                <span className="text-muted">{"      "}</span>
-                <span className="text-green-400">Memory</span>
-                <span className="text-muted"> ──</span>
-                <span className="text-blue-400">[:Relates]</span>
-                <span className="text-muted">──▶ </span>
-                <span className="text-green-400">Memory</span>
-              </code>
+            <pre className="font-mono text-xs sm:text-[13px] leading-6 overflow-x-auto text-foreground/90">
+              <code>{tree}</code>
             </pre>
           </div>
 
-          {/* Feature cards */}
           <div className="space-y-4">
             <MemoryCard
-              title="Confidence Decay"
-              description="Every memory loses 0.01 confidence per day since last validation. After ~90 days without revalidation, a fact is considered stale and tombstoned."
+              title="Confidence decay"
+              description="Each memory has a confidence and a decay rate (0.01 per day by default; the seeded identity nodes don't decay). User turns start at 0.7 and assistant turns at 0.6."
               color="orange"
             />
             <MemoryCard
-              title="Dual Recall"
-              description="Substring match by default for speed. Semantic recall via by llm() on demand for deeper understanding."
+              title="Recall"
+              description="Before each reply, the highest-confidence live memories (up to 3,000 characters) are added to the prompt. Recall walkers also search by text and type (User, Feedback, Project, Reference) and rank by confidence."
               color="blue"
             />
             <MemoryCard
-              title="Dream Walker"
-              description="Runs every 2 hours: tombstones zero-confidence nodes, auto-tags untagged memories, revalidates still-accurate decaying memories."
+              title="Dream walker"
+              description="Every 2 hours: tombstones memories at zero confidence, re-validates the ones between 0.2 and 0.6, tags untagged memories with topics, and adds related_to edges."
               color="purple"
             />
           </div>
         </div>
+
+        <figure className="mt-12">
+          <div className="overflow-hidden rounded-xl border border-card-border">
+            <Image
+              src="/dashboard-graph.jpg"
+              alt="Graphclaw's Jac dashboard, Graph Memory page: a force-directed knowledge graph of the root, identity, skills, and MCP nodes, with the core identity nodes listed beside it."
+              width={1600}
+              height={1000}
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-xs text-muted">
+            The local dashboard&apos;s Graph Memory page on a fresh install (24 nodes,
+            19 edges), captured at <code className="font-mono">127.0.0.1:18789</code>.
+          </figcaption>
+        </figure>
       </div>
     </section>
   );

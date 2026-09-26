@@ -13,23 +13,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Graphclaw — Graph-Native Multi-Agent AI Platform",
+  metadataBase: new URL("https://graphclaw.vercel.app"),
+  title: "Graphclaw: graph-native multi-agent runtime in Jac",
   description:
-    "Multi-agent AI platform where memory lives in a property graph, agents are graph walkers, and skills install from the internet at runtime — all in Jac.",
+    "Self-hosted multi-agent runtime in Jac with graph memory, agent routing, and five chat channels. 1st place of 200+ teams at JacHacks 2026.",
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "Graphclaw — Graph-Native Multi-Agent AI Platform",
+    title: "Graphclaw: graph-native multi-agent runtime in Jac",
     description:
       "Multi-agent AI where memory is a graph, agents walk it, skills install at runtime. Built in Jac.",
-    url: "https://graphclaw.dev",
+    url: "https://graphclaw.vercel.app",
     siteName: "Graphclaw",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Graphclaw — Graph-Native Multi-Agent AI Platform",
+    title: "Graphclaw: graph-native multi-agent runtime in Jac",
     description:
       "Multi-agent AI where memory is a graph, agents walk it, skills install at runtime.",
   },

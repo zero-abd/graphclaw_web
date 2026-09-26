@@ -11,7 +11,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
-            Alpha — Built for the Jaseci Hackathon
+            1st place of 200+ teams at JacHacks 2026
           </div>
         </div>
 
@@ -26,8 +26,10 @@ export function Hero() {
         </h1>
 
         <p className="animate-fade-in-up delay-200 mt-6 text-lg sm:text-xl text-muted max-w-2xl mx-auto leading-relaxed">
-          Memory lives in a property graph. Agents are graph walkers. Skills
-          install from the internet at runtime. All written in{" "}
+          A self-hosted agent runtime where memory is a knowledge graph, a
+          coordinator routes each message to a planner, builder, researcher, or
+          DevOps agent, and skills and MCP servers plug in at runtime. Written
+          in{" "}
           <a
             href="https://www.jac-lang.org/"
             target="_blank"
@@ -52,16 +54,16 @@ export function Hero() {
             View on GitHub
           </a>
           <a
-            href="#install"
+            href="#setup"
             className="rounded-xl border border-card-border bg-card hover:border-accent/50 px-6 py-3 text-sm font-semibold transition-all"
           >
-            Get Started
+            Self-host it
           </a>
         </div>
 
         <div className="animate-fade-in-up delay-400 mt-12 flex flex-wrap items-center justify-center gap-3">
           <Badge color="violet">Jac 0.13.5</Badge>
-          <Badge color="blue">Python 3.12+</Badge>
+          <Badge color="blue">Python 3.12–3.13</Badge>
           <Badge color="green">MIT License</Badge>
           <Badge color="orange">Alpha</Badge>
         </div>
@@ -76,15 +78,18 @@ export function Hero() {
             </div>
             <div>
               <span className="text-green-400">$</span>{" "}
-              <span className="text-muted">graphclaw</span>
+              <span className="text-foreground">graphclaw</span>
             </div>
-            <div className="mt-1 text-muted">{"> "}deploy my app to base44</div>
+            <div className="mt-1 text-muted">[graphclaw] no channels enabled -- running in CLI mode</div>
+            <div className="text-muted">[graphclaw] ready</div>
+            <div className="text-muted">Type your message (Ctrl+C to exit):</div>
             <div className="mt-1">
-              <span className="text-accent">[devops]</span>{" "}
-              <span className="text-muted">
-                Checking Base44 apps... deploying graphclaw-demo...{" "}
-              </span>
-              <span className="text-green-400">done</span>
+              <span className="text-accent">{"> "}</span>
+              <span className="text-foreground">pairing list telegram</span>
+            </div>
+            <div className="mt-1 text-green-400">No pending Telegram pairing requests.</div>
+            <div className="mt-3 text-xs text-muted/70 font-sans">
+              Real output from a fresh install, captured while testing the setup steps below.
             </div>
           </div>
         </div>
