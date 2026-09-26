@@ -7,7 +7,7 @@ export function Skills() {
             Extensible <span className="text-accent">Skill System</span>
           </h2>
           <p className="mt-4 text-muted text-lg max-w-2xl mx-auto">
-            Two skill types that extend your agents at runtime — no restart needed.
+            Two skill types that extend your agents at runtime. A new skill loads on the next session, with no restart.
           </p>
         </div>
 
@@ -62,35 +62,28 @@ export function Skills() {
               <h3 className="text-lg font-semibold">ClawHub Skills</h3>
             </div>
             <p className="text-sm text-muted mb-4">
-              13,000+ community skills from the ClawHub registry.
+              Community skills from the ClawHub registry, installed after you approve.
             </p>
             <div className="rounded-lg bg-code-bg border border-card-border p-4 font-mono text-xs leading-relaxed overflow-x-auto">
+              <div className="text-muted/60 mb-1">{"// tools the DevOps agent calls"}</div>
               <div>
-                <span className="text-green-400">{">"}</span>
-                <span className="text-muted"> install the kubernetes skill</span>
-              </div>
-              <div className="mt-1">
-                <span className="text-accent">[devops]</span>
-                <span className="text-muted"> Searching ClawHub for &apos;kubernetes&apos;...</span>
+                <span className="text-accent">search_clawhub</span>
+                <span className="text-muted">(&quot;kubernetes&quot;)</span>
               </div>
               <div>
-                <span className="text-accent">[devops]</span>
-                <span className="text-muted">
-                  {" "}
-                  Downloading and installing...
-                </span>
+                <span className="text-accent">install_skill</span>
+                <span className="text-muted">(&quot;&lt;slug&gt;&quot; or &quot;https://github.com/...&quot;)</span>
               </div>
-              <div className="mt-1">
-                <span className="text-green-400">{"✓"}</span>
-                <span className="text-muted"> Skill installed</span>
+              <div className="mt-1 text-green-400">
+                Installed &apos;&lt;slug&gt;&apos; from ClawHub. Start a new session to load it.
               </div>
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2">
-              <SkillPill name="kubernetes" />
-              <SkillPill name="docker" />
-              <SkillPill name="github-actions" />
-              <SkillPill name="13,000+" dim />
+              <SkillPill name="search_clawhub" />
+              <SkillPill name="install_skill" />
+              <SkillPill name="update_skill" />
+              <SkillPill name="or any GitHub URL" dim />
             </div>
           </div>
         </div>

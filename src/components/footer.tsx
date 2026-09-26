@@ -39,7 +39,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 text-center text-xs text-muted">
-          Built for the Jaseci Hackathon. Graphclaw is in alpha — PRs welcome.
+          1st place at JacHacks 2026. Built by Abdullah Al Mahmud. Graphclaw is alpha; PRs welcome.
         </div>
       </div>
     </footer>

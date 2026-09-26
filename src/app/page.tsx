@@ -9,6 +9,7 @@ import { Install } from "@/components/install";
 import { Channels } from "@/components/channels";
 import { BuiltOn } from "@/components/built-on";
 import { Footer } from "@/components/footer";
+import { Win } from "@/components/win";
 
 export default function Home() {
   return (
@@ -16,13 +17,14 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Install />
+        <Win />
         <Features />
-        <Comparison />
         <Architecture />
         <Memory />
         <Skills />
         <Channels />
+        <Comparison />
+        <Install />
         <BuiltOn />
       </main>
       <Footer />

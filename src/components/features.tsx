@@ -7,7 +7,7 @@ const features = [
     ),
     title: "Graph Memory",
     description:
-      "Facts live as typed nodes with confidence scores that decay over time. The Dream walker prunes stale nodes, revalidates memories, and keeps topic tags fresh.",
+      "Facts live as typed nodes with confidence scores that decay over time. The Dream walker tombstones stale nodes, re-validates fading ones, and keeps topic tags fresh.",
   },
   {
     icon: (
@@ -17,7 +17,7 @@ const features = [
     ),
     title: "Multi-Agent Team",
     description:
-      "A Coordinator classifies intent and routes to DevOps, Planner, Builder, or Researcher. All agents share the same memory graph.",
+      "A Coordinator routes each message to a Planner, Builder, Researcher, or DevOps agent, each with its own tools. All of them read the same memory graph.",
   },
   {
     icon: (
@@ -25,9 +25,9 @@ const features = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z" />
       </svg>
     ),
-    title: "Skill Directory",
+    title: "Runtime Skills",
     description:
-      "Skills are self-contained modules with manifests. Install new skills at runtime from GitHub or the central registry — no restart needed.",
+      "Native skills (skill.json + skill.py) and OpenClaw-style SKILL.md workflows. Ask for a missing capability and it offers a ClawHub skill or installs one from a GitHub URL once you approve; no restart.",
   },
   {
     icon: (
@@ -35,9 +35,9 @@ const features = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
       </svg>
     ),
-    title: "Jac OSP",
+    title: "MCP Servers",
     description:
-      "Nodes connected to root auto-persist. Per-user isolation is built in. Walkers traverse data instead of pulling it to logic.",
+      "Every MCP server in your config exposes its tools, resources, and prompts to the agents. Playwright and Base44 MCP servers can be registered on demand.",
   },
   {
     icon: (
@@ -47,7 +47,7 @@ const features = [
     ),
     title: "5 Channels",
     description:
-      "Telegram, Discord, Slack, Email, and WhatsApp. One message bus routes everything through your agents.",
+      "Telegram, Discord, Slack, Email (IMAP/SMTP), and WhatsApp (via a bridge), plus a local CLI. One message bus routes everything.",
   },
   {
     icon: (
@@ -57,7 +57,7 @@ const features = [
     ),
     title: "Multi-Provider",
     description:
-      "OpenRouter, Anthropic, OpenAI, DeepSeek, Groq, Gemini, Mistral, Ollama, and any OpenAI-compatible endpoint.",
+      "LiteLLM under the hood: OpenRouter by default, plus Anthropic, OpenAI, DeepSeek, Groq, and local Ollama models.",
   },
 ];
 
@@ -71,8 +71,8 @@ export function Features() {
             <span className="text-accent">AI agents</span>
           </h2>
           <p className="mt-4 text-muted text-lg max-w-2xl mx-auto">
-            A complete platform where agents collaborate over shared graph
-            memory, with skills that extend at runtime.
+            Agents that share one graph memory, reachable from the chat apps
+            you already use, with skills and MCP servers that plug in at runtime.
           </p>
         </div>
 
